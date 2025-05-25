@@ -1,0 +1,30 @@
+article {
+    height: calc(100vh - 80px); /* minus the header height */
+}
+
+#top {
+    height: 50%;
+    background-color: pink;
+}
+
+
+#bot {
+    height: 50%;
+    
+    display: flex;
+}
+
+#left {
+    background-color: blue;
+
+    width: 50%;
+    height: 100%;
+}
+
+#right {
+    background-color: purple;
+
+    width: 50%;
+    height: 100%;
+
+}

@@ -1,0 +1,73 @@
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+article > section {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    background-color: orange;
+   
+    height: 100%;
+    width: 40%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.informatic {
+    background-color: pink;
+
+    height: 100%;
+    width: 60%;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#intro {
+    height: 65vh;
+    background-color: #a0a;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+#introText {
+    text-align: center;
+    position: relative;
+    top: 10%;
+}
+
+#introText > h1 {
+    font-size: 4rem;
+}
+
+
+#about {
+    background-color: #aaa;
+}
+ 
+/* #about > .title {
+    
+}*/
+
+#faq {
+    background-color: #777;
+
+    flex-flow: row-reverse;
+}
+
+#vid {
+    background-color: #444;
+}
