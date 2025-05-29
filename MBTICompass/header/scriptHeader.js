@@ -7,3 +7,16 @@ xhr.onreadystatechange = function() {
     }
 }
 xhr.send();
+
+var x = 0;
+
+// darkmode icon changing animation
+function darkModeAnim() {
+    if (x % 2) {
+        document.getElementById("test").children[0].src = "/img/moon.png";
+    }
+    else {
+        document.getElementById("test").children[0].src = "/img/sun.png";
+    }
+    x++;
+};
