@@ -1,17 +1,33 @@
 /* define variables */
 :root {
-    --text: #d4ddfc;
-    --background: #02071d;
+    /* Light Mode */
+    --text: #030c2b;
+    --background: #e2e7fd;
     --primary: #718df4;
-    --primary-darker: #5367b9;
-    --secondary: #680b93;
-    --accent: #e534ef;
+    --secondary: #5f23ff;
+    /* --secondary: #c96cf4; */
+    --accent: #c210cb;
+    
+    /* dark mode */
+    /* --text: #1d4ddf; */
+    /* --background: #02071d; */
+    /* --primary: #3c66ff; */
+    /* --primary-darker: #5367b9; */
+    /* --secondary: #680b93; */
+    /* --accent: #e534ef; */
+
     --headerH: 80px; /* header height */
+}
+
+@font-face {
+    font-family: "comic-neue";
+    src: url("/fonts/Comic_Neue/ComicNeue-Regular.ttf");
 }
 
 
 * {
     margin: 0;
+    font-family: "comic-neue";
 }
 
 #pad {
@@ -25,7 +41,7 @@ header {
     height: var(--headerH);
     position: fixed;
 
-    z-index: 1; /* makes that header is always on top*/
+    z-index: 999; /* makes that header is always on top*/
 }
 
 header > nav {
@@ -75,6 +91,7 @@ header ul {
     /* background-color: ; */
 
     height: 100%;
+    font-weight: bold;
 }
 
 #navList > li > a {
@@ -111,7 +128,8 @@ header ul {
 
 #accessList {
     list-style-type: none;
-    background-color: var(--primary-darker);
+    /* background-color: var(--primary-darker); */
+    background-color: var(--secondary);
     border-radius: 15px;
 
     display: flex;
