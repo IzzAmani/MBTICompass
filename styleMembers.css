@@ -1,0 +1,14 @@
+.members {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+    background-color: purple;
+    padding: 15px;
+}
+.members > div {
+    background-color: white;
+    color: #000;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
