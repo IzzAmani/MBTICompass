@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Compatibility </title>
+
+        <link rel="stylesheet" href="compatibility.css" > 
+    </head>
+
+    <body> 
+        <!-- include header file -->
+        <div id="headerDiv"></div>  <script src="/header/scriptHeader.js"></script>
+
+        <article id="circle-container">
+            <svg id="lineSVG">
+            </svg>
+
+            <div id="circle"> 
+            </div>
+        </article>
+ 
+        <section id="form">
+            <div id="drag-bar"> 
+                <div> </div>
+                <div> </div>
+            </div>
+
+            <section id="inputs">
+                <section id="text-inp">
+                    <input id="usr-name" type="text" placeholder="Your Name" maxlength="12">
+                    <input id="usr-MBTI" type="text" placeholder="Your MBTI" maxlength="4">
+                </section>
+ 
+                <button id="submit-btn"> Add User </button>
+            </section>
+
+            <section id="name-list">
+                <!-- <section class="names"> -->
+                <!--     <img onclick="editNode('kys')" alt="edit" src="/img/pencil.png">  -->
+                <!-- </section> -->
+                <!-- decided to not add ability to edit nodes to preserve my sanity -->
+            </section>
+        </section>
+
+
+        <script src="nodes.js"> </script>
+        <script src="form.js"> </script>
+    </body>
+</html>
