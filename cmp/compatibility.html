@@ -27,7 +27,30 @@
             <section id="inputs">
                 <section id="text-inp">
                     <input id="usr-name" type="text" placeholder="Your Name" maxlength="12">
-                    <input id="usr-MBTI" type="text" placeholder="Your MBTI" maxlength="4">
+                    <!-- <input id="usr-MBTI" type="text" placeholder="Your MBTI" maxlength="4"> -->
+                    <button id="usr-mbti" onclick="displayChoco()"> Set MBTI </button>
+ 
+                    <section id="chocolate">
+                        <div class="sectionChoco">
+                            <button onclick="mbtiChoose('energy', 'I')" class="energy"> I </button>
+                            <button onclick="mbtiChoose('energy', 'E')" class="energy"> E </button>
+                        </div>
+
+                        <div class="sectionChoco">
+                            <button onclick="mbtiChoose('info', 'N')" class="info"> N </button>
+                            <button onclick="mbtiChoose('info', 'S')" class="info"> S </button>
+                        </div>
+
+                        <div class="sectionChoco">
+                            <button onclick="mbtiChoose('decision', 'T')" class="decision"> T </button>
+                            <button onclick="mbtiChoose('decision', 'F')" class="decision"> F </button>
+                        </div>
+
+                        <div class="sectionChoco">
+                            <button onclick="mbtiChoose('lifestyle', 'P')" class="lifestyle"> P </button>
+                            <button onclick="mbtiChoose('lifestyle', 'J')" class="lifestyle"> J </button>
+                        </div>
+                    </section>
                 </section>
  
                 <button id="submit-btn"> Add User </button>
@@ -35,10 +58,32 @@
 
             <section id="name-list">
                 <!-- <section class="names"> -->
-                <!--     <img onclick="editNode('kys')" alt="edit" src="/img/pencil.png">  -->
+                <!--     <img onclick="editNode()" alt="edit" src="/img/pencil.png">  -->
                 <!-- </section> -->
                 <!-- decided to not add ability to edit nodes to preserve my sanity -->
             </section>
+
+            <!-- <section id="chocolate"> -->
+            <!--     <div class="sectionChoco"> -->
+            <!--         <button onclick="mbtiChoose('energy', 'I')" class="energy"> I </button> -->
+            <!--         <button onclick="mbtiChoose('energy', 'E')" class="energy"> E </button> -->
+            <!--     </div> -->
+            <!---->
+            <!--     <div class="sectionChoco"> -->
+            <!--         <button onclick="mbtiChoose('info', 'N')" class="info"> N </button> -->
+            <!--         <button onclick="mbtiChoose('info', 'S')" class="info"> S </button> -->
+            <!--     </div> -->
+            <!---->
+            <!--     <div class="sectionChoco"> -->
+            <!--         <button onclick="mbtiChoose('decision', 'T')" class="decision"> T </button> -->
+            <!--         <button onclick="mbtiChoose('decision', 'F')" class="decision"> F </button> -->
+            <!--     </div> -->
+            <!---->
+            <!--     <div class="sectionChoco"> -->
+            <!--         <button onclick="mbtiChoose('lifestyle', 'P')" class="lifestyle"> P </button> -->
+            <!--         <button onclick="mbtiChoose('lifestyle', 'J')" class="lifestyle"> J </button> -->
+            <!--     </div> -->
+            <!-- </section> -->
         </section>
 
 

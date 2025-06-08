@@ -2,8 +2,7 @@ const circle = document.getElementById("circle");
 const SVG    = document.getElementById("lineSVG");
 const circleRad = 15;
 
-const usrName = document.getElementById("usr-name");
-const usrMBTI = document.getElementById("usr-MBTI");
+var usrMBTI; // get from form.js using the mbti chocolate
 
 var nodeRad = 14;
 
@@ -41,8 +40,7 @@ function createNode(id, theta) {
     thetaRadian = (theta-90) * (Math.PI / 180);
 
     // xPos = cos(theta) * border radius
-    // get cos() and the increase by one for the
-    // radial offset
+    // get cos() and the increase by one for the offset
     // times the outline radius
     x = (Math.cos(thetaRadian) + 1) * circleRad;
     y = (Math.sin(thetaRadian) + 1) * circleRad;
@@ -54,8 +52,9 @@ function createNode(id, theta) {
 
     // if the node is the newest node
     if (id === nodes.length) {
-        var name = usrName.value;
-        var mbti = usrMBTI.value.toUpperCase();
+        var name = usrNameInput.value;
+        // var mbti = usrMBTI.value.toUpperCase();
+        var mbti = usrMBTI;
     }
     else {
         var name = nodes[id].name;
@@ -91,6 +90,12 @@ function createNode(id, theta) {
 function drawNodes(dir) {
     document.getElementById("circle").innerHTML = "";
 
+    console.log("hi im in node:", mbtiChoco);
+    // combine the arrar of mbti letters into string
+    usrMBTI = mbtiChoco.join("");
+
+    console.log("hi im in node:", usrMBTI);
+
     // random offset to make the nodes a little nicer
     var thetaOffset = Math.round(Math.random() * 360);
  
@@ -114,8 +119,7 @@ function drawNodes(dir) {
     for (var i=0; i < count; i++) {
         createNode(i, (i / count) * 360 + thetaOffset);
     }
-    usrName.value = "";
-    usrMBTI.value = "";
+    usrNameInput.value = "";
 
     SVG.innerHTML = "";
 
@@ -128,9 +132,12 @@ const colors = ["red", "orange", "darkgray", "lime", "darkgreen"]
 function drawLine() {
     console.log("Drawing Line: ")
     // loop every node and connect them to other nodes
-    // BUT: CURRENTLY UNOPTIMISED BECAUSE IT WILL CONNECT ALREADY CONNECTED NODES
     for (var i=0; i < nodes.length; i++) {
-        for (var j=0; j < nodes.length-1; j++) {
+        // j = i+1 so that we dont repeat connected nodes
+        // (nodes that are of lesser index are always the connected ones)
+        // ((this is because we start at the lowest index nodes))
+        // (((hence the lowest index are connect to all already)))
+        for (var j=i+1; j < nodes.length; j++) {
             // skip if the nodes are the same
             if (i == j) {
                 continue;
@@ -139,11 +146,15 @@ function drawLine() {
             // console.log(i, j);
 
             // get the line color for nodes[i] -> nodes[j] from color dictionary
-            console.log(colorDict, "\n", nodes[i].mbti);
+            console.log("Color: ", colorDict, "\n", nodes[i].mbti);
+
  
             // get the column index of the color chart;
-            var colIndex = colorDict.column[nodes[j].mbti];
-            var colorIndex = colorDict[nodes[i].mbti][colIndex]
+            var columnIndex = colorDict.column[nodes[j].mbti];
+            var colorIndex = colorDict[nodes[i].mbti][columnIndex];
+
+            console.log("Burh: ", colorIndex, columnIndex);
+
 
             // create a SVG elem in the SVG namespace
             const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
