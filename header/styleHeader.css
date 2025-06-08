@@ -8,15 +8,16 @@
     /* --secondary: #c96cf4; */
     --accent: #c210cb;
     
-    /* dark mode */
-    /* --text: #1d4ddf; */
-    /* --background: #02071d; */
-    /* --primary: #3c66ff; */
-    /* --primary-darker: #5367b9; */
-    /* --secondary: #680b93; */
-    /* --accent: #e534ef; */
 
     --headerH: 80px; /* header height */
+}
+.dark-mode {
+    --text: #1d4ddf;
+    --background: #02071d;
+    --primary: #3c66ff;
+    --primary-darker: #5367b9;
+    --secondary: #680b93;
+    --accent: #e534ef;
 }
 
 @font-face {
