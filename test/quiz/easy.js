@@ -19,7 +19,6 @@ if ( localStorage.getItem("choices") ) {
     choices = JSON.parse(localStorage.getItem("choices"));
 }
 
-// console.log("Local Choices: ", choices, choices.length);
 
 // display the cards
 function displayCards(currIndex) {
@@ -249,7 +248,6 @@ cardHolder.addEventListener("change", (evt) => {
         changeCard(1);
     }
 
-    console.log(choices);
     displaySubmit();
 })
 

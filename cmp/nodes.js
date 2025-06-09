@@ -20,18 +20,6 @@ function Node(theta, name, mbti, x, y) {
     this.y     = y;
 };
 var nodes = [];
-var colorDict;
-
-fetch("color_dictionary.json")
-    .then(response => {
-        if(!response.ok) {
-            console.error(`[${response.status}] something went wrong.`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        colorDict = data;
-    })
 
 
 // create new nodes ready to be places onto the circle
@@ -72,10 +60,15 @@ function createNode(id, theta) {
     // dynamically resize the font size based on name length
     var nameSize = 150 - 5*name.length;
 
+    // insert the text
     newNode.innerHTML = `
         <p style="font-size: ${nameSize/100}rem; font-weight: 900"> ${name} </p>
         <span class="sub-text"> ${mbti} </span>
     `;
+
+    newNode.addEventListener("mouseenter", (evt) => {
+        evt.target.style.backgroundColor = "red";
+    })
 
     newNode.classList.add("nodes");
  
@@ -90,11 +83,8 @@ function createNode(id, theta) {
 function drawNodes(dir) {
     document.getElementById("circle").innerHTML = "";
 
-    console.log("hi im in node:", mbtiChoco);
     // combine the arrar of mbti letters into string
     usrMBTI = mbtiChoco.join("");
-
-    console.log("hi im in node:", usrMBTI);
 
     // random offset to make the nodes a little nicer
     var thetaOffset = Math.round(Math.random() * 360);
@@ -112,7 +102,7 @@ function drawNodes(dir) {
     }
     else if (count % 4 === 3 && dir == -1) { 
         // expand every 3rd elements going backwards
-        nodeRad += 1;
+        nodeRad += 1;b
     }
 
     // create how many nodes are required
@@ -125,52 +115,4 @@ function drawNodes(dir) {
 
     drawLine();
     addNameBar(); // in form.js
-}
-
-// connect two nodes by a line
-const colors = ["red", "orange", "darkgray", "lime", "darkgreen"]
-function drawLine() {
-    console.log("Drawing Line: ")
-    // loop every node and connect them to other nodes
-    for (var i=0; i < nodes.length; i++) {
-        // j = i+1 so that we dont repeat connected nodes
-        // (nodes that are of lesser index are always the connected ones)
-        // ((this is because we start at the lowest index nodes))
-        // (((hence the lowest index are connect to all already)))
-        for (var j=i+1; j < nodes.length; j++) {
-            // skip if the nodes are the same
-            if (i == j) {
-                continue;
-            }
-
-            // console.log(i, j);
-
-            // get the line color for nodes[i] -> nodes[j] from color dictionary
-            console.log("Color: ", colorDict, "\n", nodes[i].mbti);
-
- 
-            // get the column index of the color chart;
-            var columnIndex = colorDict.column[nodes[j].mbti];
-            var colorIndex = colorDict[nodes[i].mbti][columnIndex];
-
-            console.log("Burh: ", colorIndex, columnIndex);
-
-
-            // create a SVG elem in the SVG namespace
-            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-
-            // var color = colors[Math.round(Math.random() * 3)];
-            var color = colors[colorIndex];
-
-            // set line attributes
-            line.setAttribute("x1", nodes[i].x + nodeRad + "%");
-            line.setAttribute("x2", nodes[j].x + nodeRad + "%");
-            line.setAttribute("y1", nodes[i].y + nodeRad + "%");
-            line.setAttribute("y2", nodes[j].y + nodeRad + "%");
-            line.setAttribute("stroke", color);
-            line.setAttribute("stroke-width", "5");
-
-            SVG.appendChild(line);
-        }
-    }
 }

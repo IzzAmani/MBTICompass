@@ -44,14 +44,23 @@ usrNameInput.focus();
 // check if the inputs are empty and display proper error
 function isInputEmpty() {
     if (usrNameInput.value == ""){
+        // if the usrname input is empty
         usrNameInput.style.border = "3px solid red";
-        usrNameInput.focus(); // if the usrname input is empty
+        usrNameInput.focus();
     }
-    if (mbtiChoco.length < 4) {
-        usrMBTIInput.style.border = "3px solid red"; // if the mbti chocolate input is empty
-    }
+    if (mbtiChoco.filter((e) => e != '').length < 4) {
+        // if the mbti chocolate input is empty
+        usrMBTIInput.style.border = "3px solid red"; 
  
-    return (usrNameInput.value == "" || mbtiChoco.length < 4);
+        // open the chocolate menu if not already open
+        chocolate.style.opacity = 1;
+        chocolate.style.pointerEvents = "auto";
+
+    }
+
+    // return true if one of the criterea aren't met
+    // return false if both inputs are filled
+    return (usrNameInput.value == "" || mbtiChoco.filter((e) => e != '').length < 4)
 }
 
 // check if user pressed the enter key, on <input> and the inputs aren't empty
@@ -152,8 +161,6 @@ function displayChoco() {
         chocolate.style.opacity = 1;
         chocolate.style.pointerEvents = "auto";
     }
-
-    console.log(chocolate.style.opacity);
 }
 
 
