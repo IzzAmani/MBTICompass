@@ -16,15 +16,17 @@ dragBar.addEventListener("mousedown", (evt) => {
     evt.preventDefault(); // make sure that user cannot select text when cllick-dragging
 })
 
+// When user moves the mouse, move the form along with it
 document.addEventListener("mousemove", (evt) => {
     if (dragging) {
         // + offset so that it's centered
         form.style.left = (evt.clientX/window.innerWidth)*100 - 10 + "%";
         form.style.top  = (evt.clientY/window.innerHeight)*100 - 1 + "%";
-        evt.style.cursor = "pointer";
+        evt.target.style.cursor = "pointer";
     }
 })
 
+// When user dropped the form
 document.addEventListener("mouseup", () => {
     dragging = false;
     document.body.style.cursor = "default";
@@ -47,7 +49,11 @@ function isInputEmpty() {
         // if the usrname input is empty
         usrNameInput.style.border = "3px solid red";
         usrNameInput.focus();
+    } else {
+        usrNameInput.style.borderColor = "#ccc";
     }
+
+    // filter the empty array item
     if (mbtiChoco.filter((e) => e != '').length < 4) {
         // if the mbti chocolate input is empty
         usrMBTIInput.style.border = "3px solid red"; 
@@ -56,18 +62,19 @@ function isInputEmpty() {
         chocolate.style.opacity = 1;
         chocolate.style.pointerEvents = "auto";
 
+    } else {
+        usrMBTIInput.style.borderColor = "#ccc"; 
     }
+
 
     // return true if one of the criterea aren't met
     // return false if both inputs are filled
     return (usrNameInput.value == "" || mbtiChoco.filter((e) => e != '').length < 4)
 }
 
-// check if user pressed the enter key, on <input> and the inputs aren't empty
+// check if user pressed the enter key, on name input and the inputs aren't empty
 form.addEventListener("keydown", (evt) => {
     if (evt.key === "Enter" && evt.target.tagName === "INPUT" && !isInputEmpty()) {
-        // get all of the <input> inside the form
-
         // focus on the name input
         usrNameInput.focus();
 
@@ -76,28 +83,15 @@ form.addEventListener("keydown", (evt) => {
 });
 
 
-// add two event listener for Enter button and mouse click
-const submit = document.getElementById("submit-btn");
-
-// // this is for someone that uses tabs to navigate ig, idk, its 5am i can't think
-// submit.addEventListener("keydown", (evt) => {
-//     if (evt.key === "Enter" && !inputEmpty()) {
-//         // focus on thee name input 
-//         form.querySelectorAll("input")[0].focus();
-//     }
-// });
-//
-// when user click the button instead of pressing Enter
-submit.addEventListener("mouseup", () => {
+// for checking inputs and submitting usr infos to node.js if the inputs are not empty
+function submitUsrInfos() {
     if (!isInputEmpty()) {
         drawNodes(1); // add one new node (file in node.js)
 
         // focus on thee name input
         usrNameInput.focus();
-        usrNameInput.style.borderColor = "#ccc";
     }
-
-});
+}
 
 
 // --------- Chocolate mbti thingy  --------- //
@@ -106,7 +100,6 @@ function mbtiChoose(dicho, letter) {
         case "energy" :
             if (letter ===  'I' || letter === 'E') {
                 mbtiChoco[0] = letter;
-                // document.getElementById(dicho + letter).style.backgroundColor = "red";
             }
             break;
 
@@ -128,12 +121,18 @@ function mbtiChoose(dicho, letter) {
             }
             break;
     }
+
+    console.log("Chosen Choco: ", mbtiChoco);
 }
 
 // get the mbti from the chocolate input
 const chocolate = document.getElementById("chocolate");
 
-chocolate.addEventListener("mousedown", (evt) => {
+// change the colors of selected choco, by mouse or by enterkey
+chocolate.addEventListener("mousedown", (evt) => colorChoco(evt));
+chocolate.addEventListener("keyup", (evt) => { if (evt.key == "Enter") colorChoco(evt) });
+
+function colorChoco(evt) {
     // get the buttons of the chocolate
     var buttons = chocolate.querySelectorAll(".sectionChoco > button");
 
@@ -149,7 +148,7 @@ chocolate.addEventListener("mousedown", (evt) => {
     if (evt.target.tagName == "BUTTON") {
         evt.target.style.backgroundColor = "var(--primary)";
     }
-})
+}
 
 function displayChoco() {
     usrMBTIInput.style.borderColor = "revert";

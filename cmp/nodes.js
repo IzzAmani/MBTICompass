@@ -66,8 +66,34 @@ function createNode(id, theta) {
         <span class="sub-text"> ${mbti} </span>
     `;
 
+
+    // keep track of lines that have changed colors
+    var lineClrChanged = [];
+
+    // add a detect to detect when the mouse hover over the node
     newNode.addEventListener("mouseenter", (evt) => {
-        evt.target.style.backgroundColor = "red";
+        // highlights the node
+        evt.target.style.boxShadow = "0px 0px 20px 5px #000a ";
+
+        for (var line of lines) {
+            if (line.classList["0"] == id || line.classList["1"] == id) {
+                line.setAttribute("stroke", line.classList["2"]);
+                line.setAttribute("opacity", 1);
+ 
+                lineClrChanged.push(line); // add the line to array of line that color changes
+            }
+        }
+    })
+
+    newNode.addEventListener("mouseleave", (evt) => {
+        for (var line of lineClrChanged) {
+            line.setAttribute("stroke", "grey");
+            line.setAttribute("opacity", 0.5);
+        }
+ 
+        evt.target.style.boxShadow = "none";
+
+        lineClrChanged = [];
     })
 
     newNode.classList.add("nodes");
@@ -102,7 +128,7 @@ function drawNodes(dir) {
     }
     else if (count % 4 === 3 && dir == -1) { 
         // expand every 3rd elements going backwards
-        nodeRad += 1;b
+        nodeRad += 1;
     }
 
     // create how many nodes are required
@@ -113,6 +139,6 @@ function drawNodes(dir) {
 
     SVG.innerHTML = "";
 
-    drawLine();
-    addNameBar(); // in form.js
+    drawLine(); // draw the line, in line.js
+    addNameBar(); // add name bar to the form, in form.js
 }

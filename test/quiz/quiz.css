@@ -43,6 +43,7 @@ article {
     transform: scale(0.75);
     opacity: 0.5;
     filter: blur(1px) brightness(0.7);
+    pointer-events: none;
 }
 
 #card0 {

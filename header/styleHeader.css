@@ -7,6 +7,7 @@
     --secondary: #5f23ff;
     /* --secondary: #c96cf4; */
     --accent: #c210cb;
+    --highlights: #aaa;
     
 
     --headerH: 80px; /* header height */
@@ -154,6 +155,7 @@ header ul {
     display: flex;
     align-items: center;
     height: 100%;
+
 }
 
 .icons > img:hover {
@@ -166,6 +168,8 @@ header ul {
     height: 90%;
 
     padding: 10%;
+
+    transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 button.icons {

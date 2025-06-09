@@ -15,8 +15,10 @@ fetch("color_dictionary.json")
 // connect two nodes by a line
 const colors = ["red", "orange", "yellow", "lime", "darkgreen"]
 function drawLine() {
+    lines = [];
     // loop every node and connect them to other nodes
     for (var i=0; i < nodes.length; i++) {
+
         // j = i+1 so that we dont repeat connected nodes
         // (nodes that are of lesser index are always the connected ones)
         // ((this is because we start at the lowest index nodes))
@@ -44,8 +46,17 @@ function drawLine() {
             line.setAttribute("x2", nodes[j].x + nodeRad + "%");
             line.setAttribute("y1", nodes[i].y + nodeRad + "%");
             line.setAttribute("y2", nodes[j].y + nodeRad + "%");
-            line.setAttribute("stroke", color);
+            line.setAttribute("stroke", "gray");
+            line.setAttribute("opacity", 0.5)
             line.setAttribute("stroke-width", "5");
+
+            // Save the node id as the lines' class name
+            line.classList.add(i); // start node
+            line.classList.add(j); // end node
+
+            line.classList.add(color); // add the preference color to the class for easy access
+
+            lines.push(line);
 
             SVG.appendChild(line);
         }
