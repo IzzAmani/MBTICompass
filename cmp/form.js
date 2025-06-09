@@ -162,6 +162,13 @@ function displayChoco() {
     }
 }
 
+document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+        chocolate.style.opacity = 0;
+        chocolate.style.pointerEvents = "none";
+    }
+})
+
 
 // --------- For adding new entry to the namelist --------- //
 function addNameBar() {
