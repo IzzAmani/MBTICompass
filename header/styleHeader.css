@@ -159,7 +159,7 @@ header ul {
 }
 
 .icons > img:hover {
-    height: 150%;
+    height: 550%;
 }
 
 .icons > img {
@@ -169,7 +169,7 @@ header ul {
 
     padding: 10%;
 
-    transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 45.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 button.icons {

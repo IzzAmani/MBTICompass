@@ -1,6 +1,7 @@
 const circle = document.getElementById("circle");
 const SVG    = document.getElementById("lineSVG");
-const circleRad = 15;
+
+var circleRad = 15;
 
 var usrMBTI; // get from form.js using the mbti chocolate
 
@@ -62,7 +63,7 @@ function createNode(id, theta) {
 
     // insert the text
     newNode.innerHTML = `
-        <p style="font-size: ${nameSize/100}rem; font-weight: 900"> ${name} </p>
+        <p style="font-size: ${nameSize/100}rem; font-weight: 900"> ${name}</p>
         <span class="sub-text"> ${mbti} </span>
     `;
 
@@ -75,20 +76,37 @@ function createNode(id, theta) {
         // highlights the node
         evt.target.style.boxShadow = "0px 0px 20px 5px #000a ";
 
-        for (var line of lines) {
+        for (var lineObj of lines) {
+            console.log(lines, lineObj);
+            var line  = lineObj[0];
+            var label = lineObj[1];
+
+            console.log("heh", line, label);
+ 
+            // if the start/end node is the current hovered node
             if (line.classList["0"] == id || line.classList["1"] == id) {
+                // set color to the prefered color
                 line.setAttribute("stroke", line.classList["2"]);
                 line.setAttribute("opacity", 1);
+
+                label.setAttribute("opacity", 1); // display the label too
  
-                lineClrChanged.push(line); // add the line to array of line that color changes
+                // add the line and it's label to an arr to keep tracks of lines that have changed colors
+                lineClrChanged.push(lineObj);
             }
         }
     })
 
+    // revert back to normal when mouse exit the node
     newNode.addEventListener("mouseleave", (evt) => {
-        for (var line of lineClrChanged) {
+        for (var lineObj of lineClrChanged) {
+            var line = lineObj[0];
+            var label = lineObj[1];
+
             line.setAttribute("stroke", "grey");
-            line.setAttribute("opacity", 0.5);
+            line.setAttribute("opacity", 0.25);
+
+            label.setAttribute("opacity", 0);
         }
  
         evt.target.style.boxShadow = "none";
@@ -105,7 +123,7 @@ function createNode(id, theta) {
 }
 
 
-// redraw nodes
+// redraw nodes; dir => 1 == add one more node  |  0 == a node is removed 
 function drawNodes(dir) {
     document.getElementById("circle").innerHTML = "";
 
@@ -121,14 +139,21 @@ function drawNodes(dir) {
         nodes.pop();
     }
  
+    console.log("th", count, count%4, dir);
     // resizing based on how many nodes there are
     if (count !== 0 && count % 4 == 0 && dir == 1) {
         // shrink every 4th elements going forward
-        nodeRad += -1;
+        nodeRad += -2;
+        circleRad += 1;
+        circle.style.width = circleRad*2 + "%";
+        SVG.style.width    = circleRad*2 + "%";
     }
-    else if (count % 4 === 3 && dir == -1) { 
+    else if (count % 4 == 3 && dir == 0) {
         // expand every 3rd elements going backwards
-        nodeRad += 1;
+        nodeRad += 2;
+        circleRad += -1;
+        circle.style.width = circleRad*2 + "%";
+        SVG.style.width    = circleRad*2 + "%";
     }
 
     // create how many nodes are required
