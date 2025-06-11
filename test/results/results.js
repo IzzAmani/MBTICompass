@@ -10,9 +10,9 @@ console.log(results);
 const groupColors = {
     // Group   : [main color, secondary, trinary, dark]
     "Analysts" : ["#AA00AA", "#a600ff", "#d500ff", "#700070"],
-    "Diplomats": ["#10BA00",       "yellowgreen", "lime",    "#177500"],
-    "Explorers": ["goldenrod",     "gold",        "yellow",  "#BA8E23"],
-    "Sentinals": ["steelblue",     "dodgerblue",  "skyblue", "darkblue"]
+    "Diplomats": ["#10BA00",   "yellowgreen", "lime",    "#177500"],
+    "Explorers": ["goldenrod", "gold",        "yellow",  "#BA8E23"],
+    "Sentinals": ["steelblue",   "dodgerblue",  "skyblue", "darkblue"]
 }
 var mbti, group;
 
@@ -48,8 +48,16 @@ function getMBTI() {
         group = "none"
     }
 
-    document.getElementById("background-fade").style.background = `linear-gradient(to bottom, ${ groupColors[group][0] },  var(--background)`;
-    document.getElementById("MBTI").innerHTML = `Your MBTI is <b>${mbti}</b>. <br> You are part of the <b>${group}</b>!`;
+    document.getElementById("background-fade").style.background 
+        = `linear-gradient(to bottom, ${ groupColors[group][0] },  var(--background)`;
+    
+    document.getElementById("MBTI").innerHTML = `
+        Your MBTI is <b>${mbti}</b>. <br> 
+        You are part of the <b>${group}</b>! <br>
+        <span style="font-size: 1.75rem; margin: 0;">
+            Click <a href=""> here</a> to find out more about <b>${mbti}</b>!
+        </span>
+    `;
 
     localStorage.setItem("MBTI", mbti); // save mbti for future use ig, idk if this will be used
 }
@@ -94,7 +102,7 @@ function initBars() {
     for (dicho in results) {
         //return if not a dichotomies
         if (dicho === "questionsCount") { break; }
-        
+ 
         var dichoTitle = LEGENDS[dicho][0];
         var labelL     = LEGENDS[dicho][1];
         var labelR     = LEGENDS[dicho][2];
@@ -112,8 +120,8 @@ function initBars() {
                     <p class="legendL"> ${labelL} </p>
 
                     <div class="progress-bar">
-                        <div class="value-bar" style="width: ${perc}%; background-color: ${color}"> 
-                            <div style="transform: skewX(45deg)"> ${perc > 50 ? perc : (100-perc).toFixed(2) }%  ${innerLabel} </div>
+                        <div class="value-bar" style="width: ${perc}%; background-color: ${color}">  
+                            <div style="transform: skewX(45deg); color: #000"> ${perc > 50 ? perc : (100-perc).toFixed(2) }% ${innerLabel} </div>
                         </div>
                     </div>
 
