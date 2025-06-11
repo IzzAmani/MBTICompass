@@ -1,31 +1,67 @@
 body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 40px;
-    }
-    .category {
-      margin-bottom: 40px;
-    }
-    .type-row {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .type {
-      text-align: center;
-    }
-    .type img {
-      width: 60px;
-      height: 60px;
-      display: block;
-      margin: 0 auto 5px;
-      cursor: pointer;
-    }
-    .type-label {
-      font-weight: bold;
-    }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fff;
+}
+
+h1 {
+  text-decoration: underline;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.category {
+  margin-bottom: 40px;
+}
+
+.category > div:first-child {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.type-row {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+}
+
+.type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.type img {
+  width: 300px;
+  height: auto;
+}
+
+.type-label {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Optional: Shrink layout for small screens but keep 4-per-row structure */
+@media (max-width: 800px) {
+  .type-row {
+    gap: 50px;
+  }
+
+  .type {
+    width: 80px;
+  }
+
+  .type img {
+    width: 150px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .category > div:first-child {
+    font-size: 20px;
+  }
+}
