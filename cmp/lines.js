@@ -89,7 +89,7 @@ function drawLine() {
 
             lineLabel.textContent = lineTexts[colorIndex]; // inner text
 
-            // get the line's angle
+            //   get the line's angle
             var angleRad = Math.atan( (y2-y1)/(x2-x1) );
  
             // set the text rotation according to the line angle

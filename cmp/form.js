@@ -132,21 +132,30 @@ const chocolate = document.getElementById("chocolate");
 chocolate.addEventListener("mousedown", (evt) => colorChoco(evt));
 chocolate.addEventListener("keyup", (evt) => { if (evt.key == "Enter") colorChoco(evt) });
 
+// color the chocolate buttons
 function colorChoco(evt) {
     // get the buttons of the chocolate
     var buttons = chocolate.querySelectorAll(".sectionChoco > button");
 
     // loop over all of the buttons
-    for (var i of buttons) {
-        // revert all of the buttons that have the same class as the one thats clicked to gray
-        if (i.classList[0] === evt.target.classList[0]) {
-            i.style.backgroundColor = "#ccc";
+    for (var button of buttons) {
+        // revert all of the buttons that have the same class as the one thats clicked, to gray
+        if (button.classList[0] === evt.target.classList[0]) {
+            button.style.backgroundColor = "#ccc";
         }
+
     }
 
     // change the clicked button into a selected color
     if (evt.target.tagName == "BUTTON") {
         evt.target.style.backgroundColor = "var(--primary)";
+ 
+        // select the mbti choco
+        var dicho = button.classList[0];
+        var letter = button.innerText === "I";
+
+        // yes ik the mbtiChoose is already called on onclick=; but this is like a fail safe because this choco thing LOVES to break
+        mbtiChoose(dicho, letter);
     }
 }
 

@@ -77,11 +77,8 @@ function createNode(id, theta) {
         evt.target.style.boxShadow = "0px 0px 20px 5px #000a ";
 
         for (var lineObj of lines) {
-            console.log(lines, lineObj);
             var line  = lineObj[0];
             var label = lineObj[1];
-
-            console.log("heh", line, label);
  
             // if the start/end node is the current hovered node
             if (line.classList["0"] == id || line.classList["1"] == id) {
