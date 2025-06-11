@@ -1,7 +1,10 @@
+<!-- blue light filter -->
+<div id="blue-light-screen"></div>
+
 <!-- header styles -->
 <link rel="stylesheet" href="/header/styleHeader.css">
 <!-- website icon on title -->
-<link rel="icon" href="/img/icon.png" type="image/png">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 <header>
     <nav id='navi'>
@@ -24,15 +27,11 @@
                 <a href='/search/searching.html' class="icons">
                     <img src='/img/search.png' id="search" alt="Search icon">
                 </a>
-                <!-- <div id="search-box"> -->
-                <!--     <input type="text" name="search"> -->
-                <!--     <button type="submit" name="search" value="Search"> -->
-                <!-- </div> -->
             </li>
             <li>
-                <a href='https://youtube.com' class="icons">
+                <button onclick="toggleAccessPanel()" class="icons">
                     <img src='/img/oku.png' id="oku" alt="Disabled icon">
-                </a>
+                </button>
             </li>
             <li>
                 <button onclick="darkModeToggle()" id="dark-mode-btn" class="icons">
@@ -42,11 +41,20 @@
         </ul>
     </nav>
 
-    <!-- run the dark mode script for dark mode toggle -->
-    <script src="/header/darkMode.js"> </script>
 </header>
+
+<aside id="access-panel">
+    <section id="text-size">
+        <p id="text-size-label"> Text Size : </p>
+        <button onclick="changeTextSize(-1)"> - </button>
+        <p id="text-scale"> 100% </p>
+        <button onclick="changeTextSize(1)">  + </button>
+    </section>
+    <section id="blue-light">
+        <button onclick="toggleBlueLight(-1)"> Enable Blue Light Filter </button>
+    </section>
+</aside>
 
 <!-- so that other content doesnt go under the header -->
 <div id="pad"> </div>
-
 

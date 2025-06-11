@@ -1,17 +1,20 @@
 /* define variables */
 :root {
     /* Light Mode */
-    --text: #030c2b;
-    --background: #e2e7fd;
+    /* --text: #030c2b; */
+    /* --background: #e2e7fd; */
     --primary: #718df4;
     --secondary: #5f23ff;
-    /* --secondary: #c96cf4; */
+    /* /* --secondary: #c96cf4; */
     --accent: #c210cb;
-    --highlights: #aaa;
-    
+    /* --highlights: #aaa; */
+
+    --background: #f4f7f9;
+    --text: #2e2e2e;
 
     --headerH: 80px; /* header height */
 }
+
 .dark-mode {
     --text: #1d4ddf;
     --background: #02071d;
@@ -42,12 +45,29 @@ html {
     height: var(--headerH);
 }
 
+#blue-light-screen {
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #ff6900;
+    opacity: 0;
+
+    position: fixed;
+    z-index: 9999;
+
+    pointer-events: none;
+
+
+}
+
 header {
     background-color: var(--primary);
     display: flex;
-    height: var(--headerH);
-    position: fixed;
 
+    width: 100%;
+    height: var(--headerH);
+
+    position: fixed;
     z-index: 999; /* makes that header is always on top*/
 }
 
@@ -69,14 +89,12 @@ header ul {
 
 #logo {
     display: flex;
-    
+ 
     justify-content: center;
     align-items: center;
-}
 
-#logo {
     width: 5rem;
-    margin: 1%;
+    margin: 2%;
 }
 
 
@@ -114,16 +132,19 @@ header ul {
 
     font-size: 1.25rem;
     white-space:nowrap;
+
+    transition: all 0.2s ease-in-out;
 }
 
 #navList > li > a:hover {
     text-decoration: underline;
+    font-size: 1.5rem;
 }
 
 
 #access {
     /* background-color: ; */
-    width: 40vw;
+    width: 40%;
 
     justify-content: flex-end;
     align-items: flex-end;
@@ -159,7 +180,7 @@ header ul {
 }
 
 .icons > img:hover {
-    height: 550%;
+    height: 150%;
 }
 
 .icons > img {
@@ -169,7 +190,7 @@ header ul {
 
     padding: 10%;
 
-    transition: all 45.2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.2s ease-in-out;
 }
 
 button.icons {
@@ -179,19 +200,68 @@ button.icons {
     cursor: pointer;
 }
 
-/* #search {} */
+#access-panel {
+    width : 20vw;
+    height: 20vh;
 
-/* #search-box { */
-/*     background-color: pink; */
-/*     /* padding: 10%; */
-/*     width: 25vw; */
-/*     height: 20vh; */
-/**/
-/*     position: absolute; */
-/*     right: 2.5vw; */
-/*     top: 90px; */
-/**/
-/*     display: flex; */
-/*     justify-content: center; */
-/*     align-items: flex-start; */
-/* } */
+    position: fixed;
+
+    top: calc(1% + var(--headerH));
+    right: 1%;
+
+    background-color: var(--secondary);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    transition: opacity 0.1s ease-in-out;
+}
+
+#access-panel > * {
+    width: 100%;
+    height: 30%;
+}
+
+#access-panel button {
+    cursor: pointer;
+}
+
+
+#text-size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+
+    font-size: 2vw;
+}
+
+#text-size > button {
+    width: 1.5vw;
+    font-size: 1.5vw;
+
+    background-color: var(--accent);
+    border: 3px solid color-mix(in srgb, var(--accent), black 20%); /* mix the accent color with a little bit of darknest */
+    border-radius: 5px;
+}
+
+#text-scale {
+    font-size: 1.25vw;
+}
+
+#blue-light {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#blue-light > button {
+    font-size: 1.25vw;
+ 
+    background-color: var(--accent);
+    border: 3px solid color-mix(in srgb, var(--accent), black 20%); /* mix the accent color with a little bit of darknest */
+    border-radius: 20px;
+}

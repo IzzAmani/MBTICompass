@@ -1,3 +1,7 @@
+// default font size
+var globalFontSize = 16;
+
+
 // create a new xhr to copy the html code from header html to wherever the code is run in
 // this way, we only need to change one file to use the header multiple time, minimalize bugs and mismatch
 const xhr = new XMLHttpRequest();
@@ -11,6 +15,12 @@ xhr.onreadystatechange = function() {
         // toggle the darkmode incase the user already have a theme preference
         // no need to toggle everytime
         darkMode();
+
+        // hide the access panel at first load
+        toggleAccessPanel("invisible");
+
+        // set default font size
+        document.documentElement.style.fontSize = globalFontSize + "px";
     }
 }
 xhr.send();
@@ -49,5 +59,43 @@ function darkModeToggle() {
     } else {
         localStorage.setItem("darkMode", "dark");
         darkMode();
+    }
+}
+
+
+function toggleAccessPanel(preferState=null) {
+    var accessPanel = document.getElementById("access-panel");
+
+    console.log(accessPanel.style.opacity);
+
+    if (accessPanel.style.opacity === "1" || preferState === "invisible") {
+        accessPanel.style.opacity = "0";
+    }
+    else if (accessPanel.style.opacity === "0" || preferState === "visible") {
+        accessPanel.style.opacity = "1";
+    }
+}
+
+// change global font size
+function changeTextSize(size) {
+    // increase/decrease global font size
+    globalFontSize += size;
+    document.documentElement.style.fontSize = globalFontSize + "px";
+
+    // update the text label
+    var textScale = document.getElementById("text-scale");
+    var textScaleValue = (globalFontSize / 16) * 100;
+
+    textScale.innerHTML = textScaleValue + "%";
+}
+
+function toggleBlueLight() {
+    var blueLight = document.getElementById("blue-light-screen");
+
+    if (blueLight.style.opacity == 0.4) {
+        blueLight.style.opacity = 0;
+    }
+    else {
+        blueLight.style.opacity = 0.4;
     }
 }
