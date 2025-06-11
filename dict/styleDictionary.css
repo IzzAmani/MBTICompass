@@ -1,0 +1,31 @@
+body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .category {
+      margin-bottom: 40px;
+    }
+    .type-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .type {
+      text-align: center;
+    }
+    .type img {
+      width: 60px;
+      height: 60px;
+      display: block;
+      margin: 0 auto 5px;
+      cursor: pointer;
+    }
+    .type-label {
+      font-weight: bold;
+    }
