@@ -1,0 +1,60 @@
+<!-- blue light filter -->
+<div id="blue-light-screen"></div>
+
+<!-- header styles -->
+<link rel="stylesheet" href="/header/styleHeader.css">
+<!-- website icon on title -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<header>
+    <nav id='navi'>
+        <a href="/" id="logo">
+            <img src="/img/logo.svg" alt="MBTICompassLogo" id="logo-img">
+        </a>
+
+
+        <ul id="navList">
+            <li> <a href='/test/mainTest.html'> MBTI Test </a></li>
+            <li> <a href='/dict/dictionary.html'> MBTI Dictionary </a></li>
+            <li> <a href='/cmp/compatibility.html'> MBTI Compatibility </a></li>
+            <li> <a href='/members/members.html'> Members </a></li>
+        </ul>
+    </nav>
+
+    <nav id='access'>
+        <ul id="accessList">
+            <li>
+                <a href='/search/searching.html' class="icons">
+                    <img src='/img/search.png' id="search" alt="Search icon">
+                </a>
+            </li>
+            <li>
+                <button onclick="toggleAccessPanel()" class="icons">
+                    <img src='/img/oku.png' id="oku" alt="Disabled icon">
+                </button>
+            </li>
+            <li>
+                <button onclick="darkModeToggle()" id="dark-mode-btn" class="icons">
+                    <img src='/img/moon.png' id="moon" alt="Dark Mode icon">
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+<aside id="access-panel">
+    <section id="text-size">
+        <p id="text-size-label"> Text Size : </p>
+        <button onclick="changeTextSize(-1)"> - </button>
+        <p id="text-scale"> 100% </p>
+        <button onclick="changeTextSize(1)">  + </button>
+    </section>
+    <section id="blue-light">
+        <button onclick="toggleBlueLight()"> Toggle Blue Light Filter </button>
+    </section>
+</aside>
+
+<!-- so that other content doesnt go under the header -->
+<div id="pad"> </div>
+
