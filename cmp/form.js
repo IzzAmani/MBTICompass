@@ -151,8 +151,8 @@ function colorChoco(evt) {
         evt.target.style.backgroundColor = "var(--primary)";
  
         // select the mbti choco
-        var dicho = button.classList[0];
-        var letter = button.innerText === "I";
+        var dicho = evt.target.classList[0];
+        var letter = evt.target.innerText;
 
         // yes ik the mbtiChoose is already called on onclick=; but this is like a fail safe because this choco thing LOVES to break
         mbtiChoose(dicho, letter);

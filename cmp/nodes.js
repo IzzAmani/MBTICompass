@@ -136,7 +136,6 @@ function drawNodes(dir) {
         nodes.pop();
     }
  
-    console.log("th", count, count%4, dir);
     // resizing based on how many nodes there are
     if (count !== 0 && count % 4 == 0 && dir == 1) {
         // shrink every 4th elements going forward
