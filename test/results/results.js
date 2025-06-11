@@ -1,13 +1,15 @@
 // getting the result and erasing the saved choices
-var results = JSON.parse( localStorage.getItem("results") )
+var results = JSON.parse( localStorage.getItem("results") );
+
+console.log(results);
 // localStorage.removeItem("results");
 // console.log("Results: ", results);
 
 
 // color theme depends of the MBTI groups
-const GROUPS = {
-    // key: [main color, secondary, trinary, dark]
-    "Analysts" : ["#aa00aa", "#a600ff", "#d500ff", "#39003B"],
+const groupColors = {
+    // Group   : [main color, secondary, trinary, dark]
+    "Analysts" : ["#AA00AA", "#a600ff", "#d500ff", "#700070"],
     "Diplomats": ["#10BA00",       "yellowgreen", "lime",    "#177500"],
     "Explorers": ["goldenrod",     "gold",        "yellow",  "#BA8E23"],
     "Sentinals": ["steelblue",     "dodgerblue",  "skyblue", "darkblue"]
@@ -17,9 +19,9 @@ var mbti, group;
 function getMBTI() {
     // simple tie-breaker cuz im lazy to think of smth smarter
     // sorry not sorry
-    for (var key in results) {
-        if (results[key] === 0 ) {
-            results[key] += 0.1;
+    for (var dicho in results) {
+        if (results[dicho] === 0 ) {
+            results[dicho] += 0.1;
         }
     }
 
@@ -46,8 +48,8 @@ function getMBTI() {
         group = "none"
     }
 
-    document.getElementsByTagName("body")[0].style.background = `linear-gradient( ${GROUPS[group][0]}, ${GROUPS[group][3]})`;
-    document.getElementById("MBTI").innerHTML = `Your MBTI is <b>${mbti}</b> <br> Your group: ${group}`;
+    document.getElementById("background-fade").style.background = `linear-gradient(to bottom, ${ groupColors[group][0] },  var(--background)`;
+    document.getElementById("MBTI").innerHTML = `Your MBTI is <b>${mbti}</b>. <br> You are part of the <b>${group}</b>!`;
 
     localStorage.setItem("MBTI", mbti); // save mbti for future use ig, idk if this will be used
 }
@@ -57,33 +59,57 @@ function initBars() {
     var infoBoard = document.getElementById("info-board");
 
     const LEGENDS = {
-        // key: [title, left lable, right lable]
-        "energy":    ["Energy",       "Extroverted", "Introverted"],
-        "info":      ["Informations", "Sensing",     "Intuition"],
-        "decision":  ["Decisions",    "Feelings",    "Thinking"],
-        "lifestyle": ["Lifestyles",   "Judging",     "Perceiving"],
+        // dicho: [title, left lable, right lable]
+        "energy"    : ["Energy",       "Extroverted", "Introverted"],
+        "info"      : ["Informations", "Sensing",     "Intuition"],
+        "decision"  : ["Decisions",    "Feelings",    "Thinking"],
+        "lifestyle" : ["Lifestyles",   "Judging",     "Perceiving"],
     };
 
-    var key;
+    // simple explaination
+    const explain = {
+        "energy": [
+            "energized by people; talks things out to think",
+            "energized by alone time; prefers thinking quietly"
+        ],
+        "info": [
+            "focuses on facts, details, and what’s real",
+            "focuses on ideas, patterns, and future possibilities"
+        ],
+        "decision": [
+            "makes decisions based on values and people’s emotions",
+            "makes decisions with logic and objective reasoning"
+        ],
+        "lifestyle": [
+            "likes plans, structure, and early decisions",
+            "prefers spontaneity, flexibility, and keeping options open"
+        ]
+    }
+
+    var dicho;
     var txt = "";
     var qc = results.questionsCount;
  
     // loop through every dichotomies
-    for (key in results) {
+    for (dicho in results) {
         //return if not a dichotomies
-        if (key === "questionsCount") { break; }
- 
-        var res        = results[key];  // result for each dichotomies
-        var perc       = ( ((res + (qc*3)) / (qc*6)) * 100).toFixed(2); // percentage of the result
-        var innerLabel = results[key] < 0 ? LEGENDS[key][1] : LEGENDS[key][2]; // label inside the value bar
-        var color      = GROUPS[group][2]; // color theme
+        if (dicho === "questionsCount") { break; }
+        
+        var dichoTitle = LEGENDS[dicho][0];
+        var labelL     = LEGENDS[dicho][1];
+        var labelR     = LEGENDS[dicho][2];
+
+        var result     = results[dicho];  // result for each dichotomies
+        var perc       = ( ((result + (qc*3)) / (qc*6)) * 100).toFixed(2); // percentage of the result
+        var innerLabel = result < 0 ? labelL : labelR; // label inside the value bar
+        var color      = groupColors[group][2]; // color theme
 
         txt += `
-            <section style="background-color: ${GROUPS[group][1]}">
-                <p class="dichotomies"> ${LEGENDS[key][0]} </p> 
+            <section style="background-color: ${groupColors[group][1]}">
+                <p class="dichotomies"> ${dichoTitle} </p> 
 
                 <section class="bar-info">
-                    <p class="legendL"> ${LEGENDS[key][1]} </p>
+                    <p class="legendL"> ${labelL} </p>
 
                     <div class="progress-bar">
                         <div class="value-bar" style="width: ${perc}%; background-color: ${color}"> 
@@ -91,8 +117,9 @@ function initBars() {
                         </div>
                     </div>
 
-                    <p class="legendR"> ${LEGENDS[key][2]} </p>
+                    <p class="legendR"> ${labelR} </p>
                 </section>
+                <p class="explaination"> You ${explain[dicho][result < 0 ? 0 : 1]}</p>
             </section>
         `;
     }
