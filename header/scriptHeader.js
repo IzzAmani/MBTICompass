@@ -21,6 +21,8 @@ xhr.onreadystatechange = function() {
 
         // set default font size
         document.documentElement.style.fontSize = globalFontSize + "px";
+
+        showBlueLight();
     }
 }
 xhr.send();
@@ -87,13 +89,23 @@ function changeTextSize(size) {
     textScale.innerHTML = textScaleValue + "%";
 }
 
+
 function toggleBlueLight() {
+    var visible = JSON.parse(localStorage.getItem("blueLight"));
+
+    visible = !visible;
+
+    localStorage.setItem("blueLight", visible);
+
+    showBlueLight();
+}
+
+function showBlueLight() {
     var blueLight = document.getElementById("blue-light-screen");
 
-    if (blueLight.style.opacity == 0.4) {
-        blueLight.style.opacity = 0;
-    }
-    else {
+    if ( JSON.parse(localStorage.getItem("blueLight")) )  {
         blueLight.style.opacity = 0.4;
+    } else {
+        blueLight.style.opacity = 0;
     }
 }
