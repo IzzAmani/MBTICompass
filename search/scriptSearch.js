@@ -1,20 +1,21 @@
 const personality = [
-    {mbti: "INTJ", group: "Analysts"},
-    {mbti: "INTP", group: "Analysts"},
-    {mbti: "ENTJ", group: "Analysts"},
-    {mbti: "ENTP", group: "Analysts"},
-    {mbti: "INFJ", group: "Diplomats"},
-    {mbti: "INFP", group: "Diplomats"},
-    {mbti: "ENFJ", group: "Diplomats"},
-    {mbti: "ENFP", group: "Diplomats"},
-    {mbti: "ISTJ", group: "Sentinels"},
-    {mbti: "ISFJ", group: "Sentinels"},
-    {mbti: "ESTJ", group: "Sentinels"},
-    {mbti: "ESFJ", group: "Sentinels"},
-    {mbti: "ISTP", group: "Explorers"},
-    {mbti: "ISFP", group: "Explorers"},
-    {mbti: "ESTP", group: "Explorers"},
-    {mbti: "ESFP", group: "Explorers"}
+const personality = [
+    {mbti: "INTJ", group: "Analysts", link: "/mbti/purple%20mbti/intj.html"},
+    {mbti: "INTP", group: "Analysts", link: "/mbti/purple%20mbti/intp.html"},
+    {mbti: "ENTJ", group: "Analysts", link: "/mbti/purple%20mbti/entj.html"},
+    {mbti: "ENTP", group: "Analysts", link: "/mbti/purple%20mbti/entp.html"},
+    {mbti: "INFJ", group: "Diplomats", link: "/mbti/green%20mbti/infj.html"},
+    {mbti: "INFP", group: "Diplomats", link: "/mbti/green%20mbti/intp.html"},
+    {mbti: "ENFJ", group: "Diplomats", link: "/mbti/green%20mbti/enfj.html"},
+    {mbti: "ENFP", group: "Diplomats", link: "/mbti/green%20mbti/enfp.html"},
+    {mbti: "ISTJ", group: "Sentinels", link: "/mbti/blue%20mbti/istj.html"},
+    {mbti: "ISFJ", group: "Sentinels", link: "/mbti/blue%20mbti/isfj.html"},
+    {mbti: "ESTJ", group: "Sentinels", link: "/mbti/blue%20mbti/estj.html"},
+    {mbti: "ESFJ", group: "Sentinels", link: "/mbti/blue%20mbti/esfj.html"},
+    {mbti: "ISTP", group: "Explorers", link: "/mbti/yellow%20mbti/istp.html"},
+    {mbti: "ISFP", group: "Explorers", link: "/mbti/yellow%20mbti/isfp.html"},
+    {mbti: "ESTP", group: "Explorers", link: "/mbti/yellow%20mbti/estp.html"},
+    {mbti: "ESFP", group: "Explorers", link: "/mbti/yellow%20mbti/esfp.html"}
 ];
 
 const search = document.getElementById("key");
@@ -50,7 +51,7 @@ function filterSearch() {
     filtered.forEach(personality => {
         const card = document.createElement("div");
         card.classList.add("card");
-        card.innerHTML = `<p>${personality.mbti}</p>`;
+        card.innerHTML = `<p><a href=${personality.link}>${personality.mbti}</a></p>`;
         card.style.cssText = 'width: 97.5%; height: 500px; background-color: white; border-radius: 20px; text-align: center; text-decoration: none;';
         contents.appendChild(card);
     });
