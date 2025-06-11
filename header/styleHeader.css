@@ -60,7 +60,7 @@ html {
 
 }
 
-header {
+#main-header {
     background-color: var(--primary);
     display: flex;
 
@@ -71,11 +71,11 @@ header {
     z-index: 999; /* makes that header is always on top*/
 }
 
-header > nav {
+#main-header > nav {
     display: flex;
 }
 
-header ul {
+#main-header ul {
     padding: 0;
 }
 
