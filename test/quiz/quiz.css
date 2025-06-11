@@ -81,7 +81,7 @@ article {
     height: 5vh;
     min-height: 2rem;
 
-    background-color: red;
+    background-color: var(--red);
     border: none;
     border-radius: 1rem;
 
@@ -181,7 +181,7 @@ article {
     color: var(--text);
 
     right: calc(41% - (20% / 2) - (55% / 2));
-    background-color: lime;
+    background-color: var(--green);
 
 
     pointer-events: none;

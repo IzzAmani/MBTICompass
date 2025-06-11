@@ -48,10 +48,10 @@
     width: 100%;
     height: 20%;
 
-
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 #text-inp  {
@@ -63,7 +63,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
 
+#text-inp > *, #submit-btn {
+    color: #000;
 }
 
 #usr-name {
@@ -157,6 +160,7 @@
     width: 75%;
     height: 300%;
 
+
     background-color: var(--accent);
 
     position: absolute;
@@ -195,4 +199,5 @@
     border-radius: 5px;
 
     cursor: pointer;
+    color: black;
 }

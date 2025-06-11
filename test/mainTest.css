@@ -88,14 +88,14 @@ h1#title {
 }
 
 #easy {
-    background-color: lime;
+    background-color: var(--green);
 
     margin-right: 5%;
     align-self:   flex-end;
 }
 
 #hard {
-    background-color: #ff2525;
+    background-color: var(--red);
 
     align-self: flex-start;
     margin:     0 0 0 5%;

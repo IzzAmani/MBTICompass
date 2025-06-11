@@ -55,7 +55,7 @@ function getMBTI() {
         Your MBTI is <b>${mbti}</b>. <br> 
         You are part of the <b>${group}</b>! <br>
         <span style="font-size: 1.75rem; margin: 0;">
-            Click <a href=""> here</a> to find out more about <b>${mbti}</b>!
+            Click <a href="/advancedinfo/${group}/${mbti}.html"> here</a> to find out more about <b>${mbti}</b>!
         </span>
     `;
 

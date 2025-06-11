@@ -10,6 +10,9 @@
 
     --img-invert: 0; /* for black img -> white img, vice versa */
 
+    --green: #0f0;
+    --red: #f00;
+
     --headerH: 80px; /* header height */
 }
 
@@ -20,6 +23,9 @@
     --primary: #002294;
     --secondary: #0e51bc;
     --accent: #3f358e;
+
+    --green: #070;
+    --red: #700;
 
     --img-invert: 0.7; /* for black img -> white img, vice versa */
 }
