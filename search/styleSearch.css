@@ -6,21 +6,21 @@ article {
 }
 
 #menu {
-    background-color: pink;
+    background-color: var(--secondary);
     width: 25vw;
 
     padding-top: 2vh;
 }
 
 #contents {
-    background-color: red;
+    background-color: var(--accent);
     width: 75vw;
     padding-top: 2vh;
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+ 
     flex-direction: column;
     gap: 1%;
 }
