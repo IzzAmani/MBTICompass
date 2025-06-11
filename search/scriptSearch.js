@@ -1,24 +1,23 @@
 const personality = [
-const personality = [
     {mbti: "INTJ", group: "Analysts", link: "/advancedinfo/Analysts/INTJ.html"},
-    {mbti: "INTP", group: "Analysts", link: "/mbti/purple%20mbti/intp.html"},
-    {mbti: "ENTJ", group: "Analysts", link: "/mbti/purple%20mbti/entj.html"},
-    {mbti: "ENTP", group: "Analysts", link: "/mbti/purple%20mbti/entp.html"},
+    {mbti: "INTP", group: "Analysts", link: "/advancedinfo/Analysts/INTP.html"},
+    {mbti: "ENTJ", group: "Analysts", link: "/advancedinfo/Analysts/ENTJ.html"},
+    {mbti: "ENTP", group: "Analysts", link: "/advancedinfo/Analysts/ENTP.html"},
 
-    {mbti: "INFJ", group: "Diplomats", link: "/mbti/green%20mbti/infj.html"},
-    {mbti: "INFP", group: "Diplomats", link: "/mbti/green%20mbti/intp.html"},
-    {mbti: "ENFJ", group: "Diplomats", link: "/mbti/green%20mbti/enfj.html"},
-    {mbti: "ENFP", group: "Diplomats", link: "/mbti/green%20mbti/enfp.html"},
+    {mbti: "INFJ", group: "Diplomats", link: "/advancedinfo/Diplomats/INFJ.html"},
+    {mbti: "INFP", group: "Diplomats", link: "/advancedinfo/Diplomats/INFP.html"},
+    {mbti: "ENFJ", group: "Diplomats", link: "/advancedinfo/Diplomats/ENFJ.html"},
+    {mbti: "ENFP", group: "Diplomats", link: "/advancedinfo/Diplomats/ENFP.html"},
 
-    {mbti: "ISTJ", group: "Sentinels", link: "/mbti/blue%20mbti/istj.html"},
-    {mbti: "ISFJ", group: "Sentinels", link: "/mbti/blue%20mbti/isfj.html"},
-    {mbti: "ESTJ", group: "Sentinels", link: "/mbti/blue%20mbti/estj.html"},
-    {mbti: "ESFJ", group: "Sentinels", link: "/mbti/blue%20mbti/esfj.html"},
-    
-    {mbti: "ISTP", group: "Explorers", link: "/mbti/yellow%20mbti/istp.html"},
-    {mbti: "ISFP", group: "Explorers", link: "/mbti/yellow%20mbti/isfp.html"},
-    {mbti: "ESTP", group: "Explorers", link: "/mbti/yellow%20mbti/estp.html"},
-    {mbti: "ESFP", group: "Explorers", link: "/mbti/yellow%20mbti/esfp.html"}
+    {mbti: "ISTJ", group: "Sentinels", link: "/advancedinfo/Sentinals/ISTJ.html"},
+    {mbti: "ISFJ", group: "Sentinels", link: "/advancedinfo/Sentinals/ISFJ.html"},
+    {mbti: "ESTJ", group: "Sentinels", link: "/advancedinfo/Sentinals/ESTJ.html"},
+    {mbti: "ESFJ", group: "Sentinels", link: "/advancedinfo/Sentinals/ESFJ.html"},
+
+    {mbti: "ISTP", group: "Explorers", link: "/advancedinfo/Explorers/ISTP.html"},
+    {mbti: "ISFP", group: "Explorers", link: "/advancedinfo/Explorers/ISFP.html"},
+    {mbti: "ESTP", group: "Explorers", link: "/advancedinfo/Explorers/ESTP.html"},
+    {mbti: "ESFP", group: "Explorers", link: "/advancedinfo/Explorers/ESFP.html"}
 ];
 
 const search = document.getElementById("key");
