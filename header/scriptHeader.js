@@ -66,8 +66,6 @@ function darkModeToggle() {
 function toggleAccessPanel(preferState=null) {
     var accessPanel = document.getElementById("access-panel");
 
-    console.log(accessPanel.style.opacity);
-
     if (accessPanel.style.opacity === "1" || preferState === "invisible") {
         accessPanel.style.opacity = "0";
     }
