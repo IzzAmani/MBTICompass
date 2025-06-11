@@ -1,44 +1,8 @@
 article {
     display: flex;
     flex-direction: column;
-}
 
-article > section {
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title {
-    background-color: var(--primary);
- 
-    height: 90%;
-    width: 40%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2%;
-
-    border-radius: 50px;
-}
-
-.informatic {
-    background-color: var(--secondary);
-
-    opacity: 0.9;
-
-    height: 90%;
-    width: 60%;
- 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2%;
-
-    border-radius: 50px;
-    padding: 0 2%;
+    margin: 2vh 0;
 }
 
 #intro-bg {
@@ -53,7 +17,6 @@ article > section {
     background-color: #fff7;
     z-index: -1;
 }
-
 
 #intro {
     height: 65vh;
@@ -77,11 +40,110 @@ article > section {
 }
 
 
+
+.info-sect {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    height: 50vh;
+}
+
+.title {
+    background-color: var(--primary);
+ 
+    height: 100%;
+    width: 30%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 50px;
+
+    font-size: 3rem;
+
+}
+
+.informatic {
+    background-color: var(--secondary);
+
+    opacity: 0.9;
+
+    height: 90%;
+    width: 60%;
+ 
+    display: flex;
+    align-items: center;
+
+    border-radius: 50px;
+    padding: 0 2%;
+ 
+    font-size: 2rem;
+    text-align: justify;
+}
+
+
 #about, #faq, #video {
     background-color: var(--background);
 }
- 
+
+#video {
+    flex-flow: row-reverse;
+
+    height: 70vh;
+}
+
+#video > .informatic {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#video iframe {
+    box-shadow: 0px 0px 10px 10px var(--accent);
+}
 
 #faq {
-    flex-flow: row-reverse;
+    height: 90vh;
+}
+#faq > .informatic {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.qna {
+    min-height: 5rem;
+    width: 100%;
+    font-size: 2rem;
+}
+
+.qna > .questions {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+
+#dichotomies {
+    flex-direction: row-reverse;
+
+    height: 100vh;
+}
+
+#dichotomies > .informatic  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.dicho-qna > .questions {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-decoration: underline;
 }
