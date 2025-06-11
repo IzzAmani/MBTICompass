@@ -1,17 +1,20 @@
 const personality = [
 const personality = [
-    {mbti: "INTJ", group: "Analysts", link: "/mbti/purple%20mbti/intj.html"},
+    {mbti: "INTJ", group: "Analysts", link: "/advancedinfo/Analysts/INTJ.html"},
     {mbti: "INTP", group: "Analysts", link: "/mbti/purple%20mbti/intp.html"},
     {mbti: "ENTJ", group: "Analysts", link: "/mbti/purple%20mbti/entj.html"},
     {mbti: "ENTP", group: "Analysts", link: "/mbti/purple%20mbti/entp.html"},
+
     {mbti: "INFJ", group: "Diplomats", link: "/mbti/green%20mbti/infj.html"},
     {mbti: "INFP", group: "Diplomats", link: "/mbti/green%20mbti/intp.html"},
     {mbti: "ENFJ", group: "Diplomats", link: "/mbti/green%20mbti/enfj.html"},
     {mbti: "ENFP", group: "Diplomats", link: "/mbti/green%20mbti/enfp.html"},
+
     {mbti: "ISTJ", group: "Sentinels", link: "/mbti/blue%20mbti/istj.html"},
     {mbti: "ISFJ", group: "Sentinels", link: "/mbti/blue%20mbti/isfj.html"},
     {mbti: "ESTJ", group: "Sentinels", link: "/mbti/blue%20mbti/estj.html"},
     {mbti: "ESFJ", group: "Sentinels", link: "/mbti/blue%20mbti/esfj.html"},
+    
     {mbti: "ISTP", group: "Explorers", link: "/mbti/yellow%20mbti/istp.html"},
     {mbti: "ISFP", group: "Explorers", link: "/mbti/yellow%20mbti/isfp.html"},
     {mbti: "ESTP", group: "Explorers", link: "/mbti/yellow%20mbti/estp.html"},
