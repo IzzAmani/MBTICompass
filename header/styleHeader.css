@@ -14,14 +14,14 @@
 }
 
 .dark-mode {
-    --text: #f4f5fb;
+    --text: #AFAFAF;
     --background: #04060b;
 
     --primary: #002294;
     --secondary: #4b72f1;
     --accent: #3f358e;
 
-    --img-invert: 1; /* for black img -> white img, vice versa */
+    --img-invert: 0.7; /* for black img -> white img, vice versa */
 }
 
 @font-face {
