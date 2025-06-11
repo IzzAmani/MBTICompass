@@ -11,31 +11,36 @@ article > section {
 }
 
 .title {
-    background-color: orange;
+    background-color: #e6ecf1;
    
-    height: 100%;
+    height: 90%;
     width: 40%;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2%;
+    border-radius: 20%;
 }
 
 .informatic {
-    background-color: pink;
+    background-color: #ffffff;
 
-    height: 100%;
+    height: 90%;
     width: 60%;
  
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2%;
+    border-radius: 20%;
+    padding: 0 2%;
 }
 
 #intro {
     height: 65vh;
-    background-color: #434;
- 
+    background: linear-gradient(to right, #9563A477, #4298B455, #33A47477, #D8A53777);
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -55,7 +60,7 @@ article > section {
 
 
 #about {
-    background-color: #aaa;
+    background-color: #f4f7f9;
 }
  
 /* #about > .title {
@@ -63,11 +68,11 @@ article > section {
 }*/
 
 #faq {
-    background-color: #777;
+    background-color: #f4f7f9;
 
     flex-flow: row-reverse;
 }
 
-#vid {
-    background-color: #444;
+#video {
+    background-color: #f4f7f9;
 }
